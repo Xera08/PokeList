@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.pokelist.network.Pokemon
+import com.example.pokelist.ui.theme.MainGradient
+import com.example.pokelist.ui.theme.PokeListTheme
 import com.example.pokelist.ui.theme.Typography
 
 @Composable
@@ -42,10 +46,7 @@ fun PokemonCard(
             modifier = Modifier
                 .background(
                     brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Color.Blue,
-                            Color.Cyan
-                        )
+                        colors = MainGradient
                     )
                 )
                 .fillMaxWidth()
@@ -83,9 +84,7 @@ fun PokemonCard(
                 .padding(start = 16.dp)
                 .background(
                     brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Color(229, 56, 1, 255), Color(71, 30, 146, 255)
-                        )
+                        colors = MainGradient
                     ),
                     shape = RoundedCornerShape(16.dp)
                 )
@@ -98,9 +97,7 @@ fun PokemonCard(
                 .padding(top = 4.dp, start = 16.dp, bottom = 16.dp)
                 .background(
                     brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Color(229, 56, 1, 255), Color(71, 30, 146, 255)
-                        )
+                        colors = MainGradient
                     ),
                     shape = RoundedCornerShape(16.dp)
                 )
