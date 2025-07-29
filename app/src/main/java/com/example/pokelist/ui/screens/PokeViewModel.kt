@@ -24,25 +24,15 @@ class PokeViewModel: ViewModel() {
         getListOfPokemon()
     }
 
-    // deprecated function used for testing the retrieving pokemon data
-    fun getSinglePokemon() {
-        viewModelScope.launch {
-            pokeUiState = try {
-                val pokemon: List<Pokemon> = listOf(PokeApi.retrofitService.getPokemon(5))
-                PokeUiState.Success(pokemon)
-            } catch (e: IOException) {
-                PokeUiState.Error
-            }
-
-        }
-    }
-
     fun getListOfPokemon() {
         viewModelScope.launch {
             pokeUiState = try {
-                val listOfPokemon: List<Pokemon> =
-                    (1..10).map { PokeApi.retrofitService.getPokemon((0..500).random()) }
-                PokeUiState.Success(listOfPokemon)
+                val setOfPokemon: MutableSet<Pokemon> = mutableSetOf()
+                while (setOfPokemon.size < 10) {
+                    setOfPokemon.add(PokeApi.retrofitService.getPokemon((0..500).random()))
+                }
+
+                PokeUiState.Success(setOfPokemon.toList())
             } catch (e: IOException) {
                 PokeUiState.Error
             }

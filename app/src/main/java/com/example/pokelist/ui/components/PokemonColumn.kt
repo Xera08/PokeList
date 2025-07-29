@@ -150,65 +150,15 @@ fun PokemonColumn(
     }
 }
 
-fun sortPokemonByNameAlphabet(listOfPokemon: List<Pokemon>): MutableList<Pokemon> {
-    // get pokemon names and sort by alphabet
-    var listOfPokemonNames: MutableList<String> = mutableListOf()
-    for (pokemon in 0..listOfPokemon.size-1) {
-        listOfPokemonNames.add(listOfPokemon[pokemon].name)
-    }
-
-    // create new list of pokemon using names sorted by Alphabet
-    val pokemonNamesSortedByAlphabet = listOfPokemonNames.sorted()
-    var newListOfPokemon: MutableList<Pokemon> = mutableListOf()
-    for (pokemonName in 0..listOfPokemonNames.size-1) {
-        for (pokemon in 0..listOfPokemon.size-1) {
-            if (listOfPokemon[pokemon].name == pokemonNamesSortedByAlphabet[pokemonName]) {
-                newListOfPokemon.add(listOfPokemon[pokemon])
-            }
-        }
-    }
-
-    return newListOfPokemon
+fun sortPokemonByNameAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
+    return (listOfPokemon.sortedBy { it.name } )
 }
 
-fun sortPokemonByMoveAlphabet(listOfPokemon: List<Pokemon>): MutableList<Pokemon> {
-    // get pokemon moves and sort by alphabet
-    var pokemonMoves: MutableList<String> = mutableListOf()
-    for (pokemon in 0..listOfPokemon.size-1) {
-        pokemonMoves.add(listOfPokemon[pokemon].moves[0].move.name)
-    }
-    val pokemonMovesSortedByAlphabet = pokemonMoves.sorted().distinct()
-
-
-    // create new list of pokemon using moves sorted by Alphabet
-    var newListOfPokemon: MutableList<Pokemon> = mutableListOf()
-    for (pokemonName in 0..pokemonMovesSortedByAlphabet.size-1) {
-        for (pokemon in 0..listOfPokemon.size-1) {
-            if (listOfPokemon[pokemon].moves[0].move.name == pokemonMovesSortedByAlphabet[pokemonName]) {
-                newListOfPokemon.add(listOfPokemon[pokemon])
-            }
-        }
-    }
-
-    return newListOfPokemon
+fun sortPokemonByMoveAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
+    return (listOfPokemon.sortedBy { it.moves[0].move.name })
 }
 
 
 fun sortPokemonByNameReverseAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
-    var listOfPokemonNames: MutableList<String> = mutableListOf()
-    for (pokemon in 0..listOfPokemon.size-1) {
-        listOfPokemonNames.add(listOfPokemon[pokemon].name)
-    }
-
-    val pokemonNamesSortedByAlphabet = listOfPokemonNames.sorted()
-    var newListOfPokemon: MutableList<Pokemon> = mutableListOf()
-    for (pokemonName in 0..listOfPokemonNames.size-1) {
-        for (pokemon in 0..listOfPokemon.size-1) {
-            if (listOfPokemon[pokemon].name == pokemonNamesSortedByAlphabet[pokemonName]) {
-                newListOfPokemon.add(listOfPokemon[pokemon])
-            }
-        }
-    }
-
-    return newListOfPokemon.reversed()
+    return (listOfPokemon.sortedBy { it.name } ).reversed()
 }
