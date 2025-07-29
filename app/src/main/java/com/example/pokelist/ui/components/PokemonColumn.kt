@@ -115,7 +115,7 @@ fun PokemonColumn(
                             )
                         },
                         onClick = {
-                            listOfPokemon = sortPokemonByNameAlphabet(listOfPokemon)
+                            listOfPokemon = pokeViewModel.sortPokemonByNameAlphabet(listOfPokemon)
                             sortMenuExpanded = !sortMenuExpanded
                         }
                     )
@@ -127,7 +127,7 @@ fun PokemonColumn(
                             )
                         },
                         onClick = {
-                            listOfPokemon = sortPokemonByMoveAlphabet(listOfPokemon)
+                            listOfPokemon = pokeViewModel.sortPokemonByMoveAlphabet(listOfPokemon)
                             sortMenuExpanded = !sortMenuExpanded
                         }
                     )
@@ -139,7 +139,7 @@ fun PokemonColumn(
                             )
                         },
                         onClick = {
-                            listOfPokemon = sortPokemonByNameReverseAlphabet(listOfPokemon)
+                            listOfPokemon = pokeViewModel.sortPokemonByNameReverseAlphabet(listOfPokemon)
                             sortMenuExpanded = !sortMenuExpanded
                         }
                     )
@@ -150,15 +150,3 @@ fun PokemonColumn(
     }
 }
 
-fun sortPokemonByNameAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
-    return (listOfPokemon.sortedBy { it.name } )
-}
-
-fun sortPokemonByMoveAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
-    return (listOfPokemon.sortedBy { it.moves[0].move.name })
-}
-
-
-fun sortPokemonByNameReverseAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
-    return (listOfPokemon.sortedBy { it.name } ).reversed()
-}

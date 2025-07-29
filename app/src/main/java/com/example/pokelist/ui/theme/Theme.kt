@@ -14,15 +14,19 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = DarkGreen,
-    secondary = Tortoquise,
-    tertiary = DarkCreme,
+    onPrimary = LightCreme,
+    surfaceContainer = DarkCreme,
+    onSurface = DarkTeal,
+    background = Color.Black
 
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = DarkCreme,
-    secondary = DarkGreen,
-    tertiary = Tortoquise,
+    onPrimary = DarkGreen,
+    surfaceContainer = LightCreme,
+    onSurface = DarkTeal,
+    background = Color.White
 
 
 
@@ -39,7 +43,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun PokeListTheme(
-    darkTheme: Boolean = false, // isSystemInDarkTheme(),
+    darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit

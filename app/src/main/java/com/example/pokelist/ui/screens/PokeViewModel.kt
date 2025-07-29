@@ -43,4 +43,17 @@ class PokeViewModel: ViewModel() {
         pokeUiState = PokeUiState.Loading
         getListOfPokemon()
     }
+
+    fun sortPokemonByNameAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
+        return (listOfPokemon.sortedBy { it.name } )
+    }
+
+    fun sortPokemonByMoveAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
+        return (listOfPokemon.sortedBy { it.moves[0].move.name })
+    }
+
+    fun sortPokemonByNameReverseAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
+        return (listOfPokemon.sortedBy { it.name } ).reversed()
+    }
+
 }

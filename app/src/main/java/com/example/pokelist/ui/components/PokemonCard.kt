@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
@@ -24,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.pokelist.network.Pokemon
+import com.example.pokelist.ui.theme.DarkCreme
+import com.example.pokelist.ui.theme.LightCreme
 import com.example.pokelist.ui.theme.MainGradient
 import com.example.pokelist.ui.theme.PokeListTheme
 import com.example.pokelist.ui.theme.Typography
@@ -32,6 +35,7 @@ import com.example.pokelist.ui.theme.Typography
 fun PokemonCard(
     pokemon: Pokemon
 ) {
+
     Column(
         modifier = Modifier
             .padding(8.dp)
@@ -40,7 +44,7 @@ fun PokemonCard(
                 elevation = 2.dp,
                 shape = RoundedCornerShape(16.dp)
             )
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.surfaceContainer)
     ) {
         Box(
             modifier = Modifier
@@ -60,7 +64,7 @@ fun PokemonCard(
                     .size(128.dp)
                     .padding(4.dp)
                     .background(
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.background,
                         shape = CircleShape
                     )
             )
@@ -106,5 +110,8 @@ fun PokemonCard(
         )
 
     }
+
+
 }
+
 
