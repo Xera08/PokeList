@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.0.21"
+    alias(libs.plugins.kotlin.serialization)
 
 }
 
@@ -60,20 +60,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    // Retrofit with Kotlin serialization Converter
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    // Kotlin serialization
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.com.squareup.retrofit2)
+    implementation(libs.com.jakewharton.retrofit)
+    implementation(libs.com.squareup.okhttp3)
+    implementation(libs.org.jetbrains.kotlinx)
+    implementation(libs.io.coilkt.coil3.compose)
+    implementation(libs.io.coilkt.coil3.network.okhttp)
+    implementation(libs.google.code.gson)
+    implementation(libs.squareup.retrofit2.converter.gson)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-
-    implementation("io.coil-kt.coil3:coil-compose:3.2.0")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.2.0")
-
-    implementation ("com.google.code.gson:gson:2.9.1")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 }

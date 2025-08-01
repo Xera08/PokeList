@@ -39,11 +39,6 @@ class PokeViewModel: ViewModel() {
         }
     }
 
-    fun retry() {
-        pokeUiState = PokeUiState.Loading
-        getListOfPokemon()
-    }
-
     fun sortPokemonByNameAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
         return (listOfPokemon.sortedBy { it.name } )
     }
@@ -52,8 +47,14 @@ class PokeViewModel: ViewModel() {
         return (listOfPokemon.sortedBy { it.moves[0].move.name })
     }
 
+
     fun sortPokemonByNameReverseAlphabet(listOfPokemon: List<Pokemon>): List<Pokemon> {
         return (listOfPokemon.sortedBy { it.name } ).reversed()
+    }
+
+    fun retry() {
+        pokeUiState = PokeUiState.Loading
+        getListOfPokemon()
     }
 
 }
