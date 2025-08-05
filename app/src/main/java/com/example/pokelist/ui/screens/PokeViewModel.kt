@@ -6,7 +6,10 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokelist.network.PokeApi
+import com.example.pokelist.network.PokeApiService
 import com.example.pokelist.network.Pokemon
+import com.example.pokelist.network.PokemonRepository
+import com.example.pokelist.network.PokemonRepositoryImp
 import kotlinx.coroutines.launch
 import java.io.IOException
 
@@ -27,9 +30,10 @@ class PokeViewModel: ViewModel() {
     fun getListOfPokemon() {
         viewModelScope.launch {
             pokeUiState = try {
+                val repositoryImp = PokemonRepositoryImp()
                 val setOfPokemon: MutableSet<Pokemon> = mutableSetOf()
                 while (setOfPokemon.size < 10) {
-                    setOfPokemon.add(PokeApi.retrofitService.getPokemon((0..500).random()))
+                    setOfPokemon.add(repositoryImp.getPokemon())
                 }
 
                 PokeUiState.Success(setOfPokemon.toList())
