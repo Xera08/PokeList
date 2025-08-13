@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+
 }
 
 android {
@@ -56,4 +58,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.com.squareup.retrofit2)
+    implementation(libs.com.jakewharton.retrofit)
+    implementation(libs.com.squareup.okhttp3)
+    implementation(libs.org.jetbrains.kotlinx)
+    implementation(libs.io.coilkt.coil3.compose)
+    implementation(libs.io.coilkt.coil3.network.okhttp)
+    implementation(libs.google.code.gson)
+    implementation(libs.squareup.retrofit2.converter.gson)
+
 }
